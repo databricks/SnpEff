@@ -144,9 +144,28 @@
       <name>Typesafe Repository</name>
       <url>http://repo.typesafe.com/typesafe/releases/</url>
     </repository>
+    <repository>
+      <id>aws-release</id>
+      <name>AWS Release Repository</name>
+      <url>s3://databricks-mvn/release</url>
+    </repository>
   </repositories>
+  <distributionManagement>
+    <repository>
+      <id>aws-release</id>
+      <name>AWS Release Repository</name>
+      <url>s3://databricks-mvn/release</url>
+    </repository>
+  </distributionManagement>
 
   <build>
+    <extensions>
+      <extension>
+        <groupId>org.springframework.build</groupId>
+        <artifactId>aws-maven</artifactId>
+        <version>5.0.0.RELEASE</version>
+      </extension>
+    </extensions>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -193,5 +212,5 @@
       </plugin>
     </plugins>
   </build>
-  <version>4.3</version>
+  <version>4.3-SNAPSHOT</version>
 </project>
