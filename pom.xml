@@ -6,7 +6,7 @@
   <packaging>jar</packaging>
   <name>Snp Effect</name>
   <description>Variant annotation and effect prediction package.</description>
-  <url>http://snpeff.sourceforge.net/</url>
+  <url>https://github.com/databricks/SnpEff</url>
   <licenses>
     <license>
       <name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3.0</name>
@@ -14,12 +14,10 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <!--
   <scm>
-    <url>https://snpeff.svn.sourceforge.net/svnroot/snpeff/SnpEffect/</url>
-    <connection>https://snpeff.svn.sourceforge.net/svnroot/snpeff/SnpEffect/</connection>
+    <url>https://github.com/databricks/SnpEff</url>
+    <connection>scm:git:git://github.com/databricks/SnpEff</connection>
   </scm>
-  -->
   <developers>
     <developer>
       <id>databricks</id>
@@ -212,6 +210,35 @@
             <phase>verify</phase>
             <goals>
               <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9.1</version>
+        <configuration>
+          <excludePackageNames>org.*:net.*:com.*</excludePackageNames>
+        </configuration>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
             </goals>
           </execution>
         </executions>
